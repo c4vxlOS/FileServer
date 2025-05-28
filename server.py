@@ -115,7 +115,7 @@ def create_flask_server():
 
 def start_flask_server(port = 4420, host = "127.0.0.1"):
     server = create_flask_server()
-    server.run(host, port, False)    
+    server.run(host, port, False)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="File hosting server.")

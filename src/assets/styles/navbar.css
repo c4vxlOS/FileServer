@@ -1,0 +1,21 @@
+.options__bar {
+    width: max-content;
+    gap: 10px;
+    position: fixed;
+    padding-right: 10px;
+    top: 10px;
+    right: 10px;
+    z-index: 999;
+}
+
+.options__bar .segment {
+    width: 5ch;
+    height: 5ch;
+    background: var(--bg-2);
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.options__bar .segment span { white-space: nowrap; }
+.options__bar .segment svg { height: 100%; width: 100%; stroke: var(--accent); }
+.options__bar:hover .segment:not(:hover) { background: var(--bg-1); }

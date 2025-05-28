@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$title$</title>
+
+    <link rel="stylesheet" href="assets/styles/global.css">
+    <link rel="stylesheet" href="assets/styles/items.css">
+    <link rel="stylesheet" href="assets/styles/header.css">
+    <link rel="stylesheet" href="assets/styles/navbar.css">
+    <link rel="stylesheet" href="assets/styles/notifications.css">
+</head>
+<body class="col">
+    <div class="notification__container col center" id="notification__container"></div>
+
+    <div class="options__bar row" id="options__bar">
+        <div class="segment row tooltip" onclick="open_modal('.file__upload__modal')">
+            <img src="assets/resources/add.svg" alt="add">
+            <span>Add media</span>
+        </div>
+
+        <div class="segment row tooltip" tooltip-pos="right" onclick="open_modal('.export__modal')">
+            <img src="assets/resources/more.svg" alt="more">
+            <span>Options</span>
+        </div>
+    </div>
+    <br>
+
+    <div class="col center modal file__upload__modal">
+        <div class="modal__content">
+            <div class="uploading col center">
+                <p>Uploading...</p>
+                <div class="bar"></div>
+            </div>
+
+            <div class="drag__zone col center" ondragover="event.preventDefault(); this.classList.add('active');" ondragleave="this.classList.remove('active');">
+                <img src="assets/resources/files.png" alt="" style="filter: invert();" class="files">
+        
+                <div class="center col">
+                    <p>Drag and drop your files</p>
+                    <div class="row center" style="gap: 20px;">
+                        <b>or</b>   
+                        <button onclick="document.querySelector('#file__upload__modal__finp').click()" class="primary">Browse your system</button>
+                        <input type="file" id="file__upload__modal__finp" multiple style="display: none;">
+                    </div>
+
+                    <div class="row center" style="gap: 20px; margin-top: 10px; width: 100%; justify-content: start;">
+                        <b>or</b>   
+                        <button onclick="open_modal('.upload__from__url')" class="primary">Upload from url</button>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="border__left col" style="width: 100%;">
+                <p>Files to upload:</p>
+
+                <div class="list col">
+                    <!--JS will generate here-->
+                </div>
+            </div>
+
+            <div class="button__panel">
+                <button class="primary col" style="width: 100%">Upload</button>
+                <button class="primary col" style="width: 100%" data-modal-close>Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col center modal upload__from__url">
+        <div class="modal__content">
+            <textarea class="primary" style="width: min(97vw, 140ch);" placeholder="[Category1;Category2;...] url"></textarea>
+            
+            <div class="button__panel">
+                <button onclick="add_url_items(this.parentNode.parentNode.querySelector('textarea'))" class="primary col" style="width: 100%" data-modal-close>Submit</button>
+                <button class="primary col" style="width: 100%" data-modal-close>Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col center modal export__modal">
+        <div class="modal__content">
+            <div class="button__panel" style="width: min(97vw, 60ch);">
+                <button class="primary col" onclick="export_to_mkg()" style="width: 100%">Export to MKGallery</button>
+                <button class="primary col" onclick="download(get_sources(), `${gn}.txt`)" style="width: 100%">Export sources</button>
+                <button class="primary col" onclick="view_source()" style="width: 100%">View sources</button>
+                <button class="primary col" onclick="document.querySelectorAll('.file__list .file__item').forEach(x => x.querySelector('button:last-child').click())" style="width: 100%" data-modal-close>Remove all items</button>
+                <button class="primary col" style="width: 100%" data-modal-close>Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col center modal view__modal">
+        <div class="modal__content">
+            <textarea disabled class="primary" style="width: min(97vw, 140ch);"></textarea>
+            <button class="primary col" style="width: 100%" data-modal-close>Close</button>
+        </div>
+    </div>
+
+    <div class="file__list row wrap center">
+        <!--JS will generate here-->
+    </div>
+
+    <script defer src="assets/scripts/script.js"></script>
+    <script defer src="assets/scripts/elements.js"></script>
+    <script defer src="assets/scripts/notifications.js"></script>
+</body>
+</html>

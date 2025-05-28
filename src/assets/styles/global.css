@@ -1,0 +1,123 @@
+:root {
+    --bg: #101011;
+    --bg-1: hsl(from var(--bg) h s 7%);
+    --bg-2: hsl(from var(--bg) h s 10%);
+    --highlight: #d6d0d0;
+    --border: hsl(from var(--bg) h s 25%);
+    --primary: #121212;
+    --font: Verdana;
+    --accent: #ffffff;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 30px 10px;
+    background: linear-gradient(161deg, var(--bg) 50%, var(--bg-1) 88%);
+    background-repeat: no-repeat;
+    gap: 35px;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+::-webkit-scrollbar { width: 0px; height: 1px; }
+::-webkit-scrollbar-thumb { background-color: var(--accent); }
+
+
+.row, .col { display: flex; }
+.row { flex-direction: row; }
+.col { flex-direction: column; }
+.center { align-items: center; justify-content: center; }
+.gap { gap: 15px; }
+.wrap { flex-wrap: wrap; }
+
+* {
+    box-sizing: border-box;
+    color: var(--accent);
+    outline: none;
+    font-family: var(--font);
+    transition: .2s;
+}
+
+.title {
+    font-size: 2rem;
+    margin: 0px;
+    font-weight: 100;
+}
+
+.border__left {
+    border-left: 5px solid var(--highlight);
+    padding: 5px;
+    padding-left: 20px;
+    background: var(--bg-2);
+    border-radius: 0px 10px 10px 0px;
+}
+
+.primary {
+    background: var(--primary);
+    padding: 8px 30px;
+    border: 1px solid var(--border);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+}
+
+button.primary:hover, .primary.active {
+    opacity: .6;
+    cursor: pointer;
+}
+input.primary { padding: 8px; }
+textarea.primary { padding: 8px; resize: none; height: 40ch; width: 100%; }
+
+.input__bar { gap: 2px; }
+.input__bar input { border-radius: 10px 0px 0px 10px; }
+.input__bar button { border-radius: 0px 10px 10px 0px; }
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg);
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    overflow-y: scroll;
+    padding: 20px;
+}
+
+.modal.active {
+    opacity: 1;
+    pointer-events: unset;
+}
+
+.modal .modal__content {
+    max-width: min(90vw, 140ch);
+}
+
+.button__panel { gap: 2px; margin-top: 20px; width: 100%; }
+.button__panel * { border-radius: 0; }
+.button__panel *:first-child { border-radius: 10px 10px 0px 0px; }
+.button__panel *:last-child { border-radius: 0px 0px 10px 10px; }
+
+.tooltip {
+    position: relative;
+}
+.tooltip span {
+    position: absolute;
+    top: calc(100% + 5px);
+    background: var(--bg-2);
+    color: var(--text);
+    padding: 5px 20px;
+    border-radius: 10px;
+    opacity: 0;
+    text-align: center;
+    display: none;
+    width: max-content;
+}
+.tooltip:hover span { opacity: 1; display: unset; }
+.tooltip[tooltip-pos="right"] span { right: 5px; border-radius: 10px 0px 10px 10px; }

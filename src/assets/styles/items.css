@@ -1,0 +1,52 @@
+.file__list {
+    gap: 15px;
+    width: 100%;
+}
+
+.file__item {
+    position: relative;
+    width: min(97%, 50ch);
+    height: 10ch;
+    padding: 5px 10px 5px 5px;
+    gap: 20px;
+    justify-content: start;
+}
+
+.file__item:hover:not(:has(button:hover)) {
+    background: var(--bg-2);
+    cursor: pointer;
+}
+
+.file__item p {
+    color: #2fafda;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    font-weight: 200;
+}
+
+.file__item img {
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.file__item button {
+    aspect-ratio: 1 / 1;
+    padding: 5px;
+    width: 4ch;
+    font-weight: 700;
+    cursor: default;
+}
+
+.file__item button img {
+    height: unset;
+}
+
+.file__item button:hover {
+    opacity: 1;
+    background: var(--bg-2);
+}

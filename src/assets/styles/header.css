@@ -1,0 +1,81 @@
+.drag__zone {
+    height: min(70vh, 40vh);
+    width: min(90vw, 140ch);
+    border: 6px dashed var(--highlight);
+    border-radius: 15px;
+    gap: 30px;
+}
+.drag__zone.active {
+    border: 6px dashed #1fb41f;
+}
+
+.drag__zone img.files {
+    width: min(100%, 10ch);
+    object-fit: contain;
+    position: relative;
+}
+
+@media (max-height: 600px) {
+    .drag__zone {
+        margin-top: 60px;
+    }
+    .drag__zone img.files {
+        display: none;
+    }
+}
+
+.file__upload__modal .uploading {
+    position: fixed;
+    top: 5px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: min(97%, 90ch);
+    background: var(--bg-2);
+    border-radius: 10px;
+}
+.file__upload__modal .uploading:not(.active) { display: none; }
+
+.file__upload__modal .uploading .bar {
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #1fb41f;
+}
+
+.file__upload__modal .border__left:not(:has(.list .file__item)) {
+    display: none;
+}
+
+.file__upload__modal:not(:has(.file__item)) button:first-child {
+    display: none;
+}
+
+.file__upload__modal .list {
+    gap: 2px;
+    border-radius: 10px;
+    overflow: hidden;
+    max-height: 30vh;
+    overflow-y: scroll;
+}
+.file__upload__modal .list::-webkit-scrollbar { width: 2px; }
+
+.file__upload__modal .list section {
+    height: 4.3ch;
+    width: unset;
+    background: var(--primary);
+    padding: 5px 5px 5px 10px;
+}
+
+.file__upload__modal .list section p { color: white; }
+
+.file__upload__modal .list section:hover {
+    background: var(--primary);
+    cursor: default;
+}
+
+.file__upload__modal .list section button {
+    height: 3.5ch;
+    width: 3.5ch;
+}

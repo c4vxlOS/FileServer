@@ -156,9 +156,9 @@ const init_upload_handler = () => {
                 if (!(item instanceof File)) {
                     let data = new FormData();
                     data.append("url", item.url);
-                    fetch(`upload/${gn}`, { method: "POST", body: data });
+                    return fetch(`upload/${gn}`, { method: "POST", body: data });
                 }
-                else upload_with_prog(item, `upload/${gn}`, (currentLoaded) => {
+                else return upload_with_prog(item, `upload/${gn}`, (currentLoaded) => {
                     totalUploaded += currentLoaded - (item._lastLoaded || 0);
                     item._lastLoaded = currentLoaded;
                     pb.querySelector(".bar").style.width = `${Math.min(100, Math.round((totalUploaded / totalSize) * 100))}%`;

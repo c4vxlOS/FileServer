@@ -103,7 +103,7 @@ def create_flask_server():
         items = [ item for item in json.loads(request.form.get("items")) if item not in g ]
         categories = json.loads(request.form.get("categories"))
 
-        response = requests.post(f"{u}/update/{id}", files={
+        response = requests.post(f"{u}/update/{id}/", files={
             "added": (None, json.dumps(items)),
             "removed": (None, "[]"),
             "categoriesChanged": (None, json.dumps([ [ lastID + i, item ] for i, item in enumerate(categories) if item ]))

@@ -121,9 +121,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="File hosting server.")
     parser.add_argument("--port", "-po", type=int, help="Set the port the server should be running on. (Default: 4421)", default=4421)
     parser.add_argument("--host", "-ht", type=str, help="Set the host the server should be running on. (Default: 127.0.0.1)", default="127.0.0.1")
+    parser.add_argument("--db-path", "-db", type=str, help="Set the path to the db directory. (Default: ./db)", default="./db")
     parser.add_argument("--mkgallery-host", "-mkg", type=str, help="Set the default url of an MKGallery server instance.")
 
     args = parser.parse_args()
     MKG_URL = args.mkgallery_host
+    DB_PATH = args.db_path
 
     start_flask_server(args.port, args.host)

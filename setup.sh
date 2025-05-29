@@ -2,9 +2,9 @@
 sudo rm -R /usr/bin/file-server /usr/bin/fileserver_src
 sudo mkdir -p /usr/bin/fileserver_src/
 
-python build.py
+python3 build.py
 
-pip install requests flask --break-system-packages
+python3 -m pip install requests flask --break-system-packages
 
 sudo cp -R server.py /usr/bin/fileserver_src/
 sudo cp -R index.template /usr/bin/fileserver_src/
@@ -12,7 +12,7 @@ sudo cp -R landing.template /usr/bin/fileserver_src/
 
 sudo tee /usr/bin/fileserver_src/fileserver.sh <<EOF
 # !/bin/bash
-python /usr/bin/fileserver_src/server.py "\$@"
+python3 /usr/bin/fileserver_src/server.py "\$@"
 EOF
 
 sudo chmod -R 777 /usr/bin/fileserver_src/

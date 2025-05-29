@@ -78,7 +78,6 @@ def create_flask_server():
             if file.filename == "": return "No selected file", 400
 
             path = f"{path}/{file.filename}"
-            print(path)
             os.makedirs(os.path.dirname(path), exist_ok=True)
             file.save(path)
         

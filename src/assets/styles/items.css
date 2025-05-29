@@ -35,9 +35,9 @@
 }
 
 .file__item button {
-    aspect-ratio: 1 / 1;
     padding: 5px;
     width: 4ch;
+    height: 4ch;
     font-weight: 700;
     cursor: default;
 }

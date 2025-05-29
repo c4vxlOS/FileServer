@@ -74,20 +74,20 @@
             <textarea class="primary" style="width: 100%;" placeholder="[Category1;Category2;...] url"></textarea>
             
             <div class="button__panel">
-                <button onclick="add_url_items(this.parentNode.parentNode.querySelector('textarea'))" class="primary col" style="width: 100%" data-modal-close>Submit</button>
-                <button class="primary col" style="width: 100%" data-modal-close>Close</button>
+                <button onclick="add_url_items(this.parentNode.parentNode.querySelector('textarea'))" class="primary col" data-modal-close>Submit</button>
+                <button class="primary col" data-modal-close>Close</button>
             </div>
         </div>
     </div>
 
     <div class="col center modal export__modal">
-        <div class="modal__content">
-            <div class="button__panel" style="width: min(97vw, 60ch);">
-                <button class="primary col" onclick="export_to_mkg()" style="width: 100%">Export to MKGallery</button>
-                <button class="primary col" onclick="download(get_sources(), `${gn}.txt`)" style="width: 100%">Export sources</button>
-                <button class="primary col" onclick="view_source()" style="width: 100%">View sources</button>
-                <button class="primary col" onclick="document.querySelectorAll('.file__list .file__item').forEach(x => x.querySelector('button:last-child').click())" style="width: 100%" data-modal-close>Remove all items</button>
-                <button class="primary col" style="width: 100%" data-modal-close>Cancel</button>
+        <div class="modal__content" style="width: min(97vw, 60ch);">
+            <div class="button__panel">
+                <button class="primary col" onclick="export_to_mkg()">Export to MKGallery</button>
+                <button class="primary col" onclick="download(get_sources(), `${gn}.txt`)">Export sources</button>
+                <button class="primary col" onclick="view_source()">View sources</button>
+                <button class="primary col" onclick="document.querySelectorAll('.file__list .file__item').forEach(x => x.querySelector('button:last-child').click())" data-modal-close>Remove all items</button>
+                <button class="primary col" data-modal-close>Cancel</button>
             </div>
         </div>
     </div>

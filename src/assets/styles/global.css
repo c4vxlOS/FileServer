@@ -75,8 +75,8 @@ input.primary { padding: 8px; }
 textarea.primary { padding: 8px; resize: none; height: 40ch; width: 100%; }
 
 .input__bar { gap: 2px; }
-.input__bar input { border-radius: 10px 0px 0px 10px; }
-.input__bar button { border-radius: 0px 10px 10px 0px; }
+.input__bar input { border-radius: 10px 0px 0px 10px; width: 100%; }
+.input__bar button { border-radius: 0px 10px 10px 0px; width: max-content; }
 
 .modal {
     position: fixed;

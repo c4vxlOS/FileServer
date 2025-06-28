@@ -92,11 +92,12 @@ def create_flask_server():
             return jsonify({ "success": False, "error": "No categories specified!" }), 400
         
         u = request.form.get("url") if request.form.get("url") else MKG_URL
-        u = u.replace("__self__", request.url).replace("//", "/").removesuffix("/")
 
         if not u:
             return jsonify({ "success": False, "error": "No mkg instance found. Please contact a server admin!" }), 400
-        
+
+        u = u.replace("__self__", f"{request.scheme}://{request.host.split(':')[0]}").removesuffix("/")
+
         g = [ r["src"] for r in json.loads(requests.get(f"{u}/items/{id}/").content) ]
         lastID = len(g)
 

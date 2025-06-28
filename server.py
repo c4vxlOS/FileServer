@@ -92,7 +92,8 @@ def create_flask_server():
             return jsonify({ "success": False, "error": "No categories specified!" }), 400
         
         u = request.form.get("url") if request.form.get("url") else MKG_URL
-        
+        u = u.replace("__self__", request.url).replace("//", "/").removesuffix("/")
+
         if not u:
             return jsonify({ "success": False, "error": "No mkg instance found. Please contact a server admin!" }), 400
         
